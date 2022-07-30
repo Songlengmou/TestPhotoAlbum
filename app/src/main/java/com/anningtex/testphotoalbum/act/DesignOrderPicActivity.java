@@ -21,6 +21,7 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.syp.library.BaseRecycleAdapter;
+import com.tencent.mmkv.MMKV;
 
 import java.util.List;
 
@@ -41,6 +42,9 @@ public class DesignOrderPicActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_design_order_pic);
         initView();
+        //接收
+        String testData = MMKV.defaultMMKV().decodeString("testData");
+        Log.e("TAG", "testData: " + testData);
     }
 
     private void initView() {

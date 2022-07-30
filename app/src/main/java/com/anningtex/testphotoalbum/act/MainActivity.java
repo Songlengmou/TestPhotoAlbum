@@ -12,6 +12,7 @@ import com.anningtex.testphotoalbum.R;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
+import com.tencent.mmkv.MMKV;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //测试传值给DesignOrderPicActivity
+        MMKV.defaultMMKV().encode("testData", "8023");
+
         findViewById(R.id.btn_launch).setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, DesignOrderPicActivity.class));
         });

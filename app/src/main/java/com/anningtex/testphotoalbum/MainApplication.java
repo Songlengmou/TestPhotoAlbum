@@ -6,9 +6,11 @@ import android.content.Context;
 import android.os.Build;
 import android.os.StrictMode;
 
+import com.anningtex.testphotoalbum.act.MainActivity;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.tencent.mmkv.MMKV;
 
 /**
  * @Author Song
@@ -23,6 +25,9 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context = this;
+        //配置MMKV
+        MMKV.initialize(context);
+        //配置mageLoader
         configImageLoader();
         // Android 7.0系统解决拍照的问题
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
